@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Approval page</title>
+	<style>
+div { 
+	display: block; 
+}
+		
+		.top img {
+			vertical-align: top;
+		}
+		
+</style>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+
+</head>
+
+<body>
+	
+<div w3-include-html="menu-pband2.html"></div>
+
+<script>
+includeHTML();
+</script>
+
+
+<hr />
+
+<div>	
+	
+<p>
+	<font face="Arial, Helvetica, sans-serif">Native Article 
+
+		<p>Top Banner 468x60 GroundCloud <br />
+			<div>
+        <img src="export/SecurityToday 468x60 GroundCloud.jpg" width="468" height="60" alt=""/> 
+		</div></p><hr />
+
+		<p>Skyscraper 160x600 | e-News Info Center Banner 180x300 <br />
+			<div class="top">
+        		<img src="export/SecurityToday 160x600.jpg" width="160" height="600" alt=""/> &nbsp; &nbsp; <img src="export/SecurityToday 180x300.jpg" width="180" height="300" alt=""> 
+			</div>
+		</p><hr />
+			
+		<p>Bottom Banner 468x60 Important <br />
+			<div>
+        <img src="export/SecurityToday 468x60 Important.jpg" width="468" height="60" alt=""/>
+		</div></p><hr />
+	
+	</font>
+</p>
+
+	
+
+
+
+<p></p>
+<hr />
+</div>
+	
+</body>
+</html>
